@@ -15,6 +15,12 @@ class Exercise
 generate = (number, max) ->
   exercises = (new Exercise(Math.floor(Math.random()*(max+1)), Math.floor(Math.random()*(max+1))) for i in [0..max])
 
+# console.log generate(15, 100)
+app = require('express').createServer()
 
+app.get "/", (req, res) ->
+  res.send 'Hello World'
 
-console.log generate(15, 100)
+port = 3000
+console.log "Listening on port " + port
+app.listen port
