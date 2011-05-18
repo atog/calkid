@@ -54,7 +54,7 @@
       cycle: cycle
     });
   });
-  port = 3000;
+  port = process.env.VCAP_APP_PORT || 3000;
   console.log("Listening on port " + port);
   app.listen(port);
 }).call(this);
