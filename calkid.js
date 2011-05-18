@@ -32,11 +32,12 @@
       return _results;
     })();
   };
+  require.paths.unshift('./node_modules');
   app = require('express').createServer();
   app.get("/", function(req, res) {
-    return res.send('Hello World1');
+    return res.send('Hello World');
   });
-  port = 3000;
+  port = process.env.VMC_APP_PORT || 3000;
   console.log("Listening on port " + port);
   app.listen(port);
 }).call(this);

@@ -1,0 +1,9 @@
+{
+  "name":"calkid",
+  "version":"0.0.1",
+  "dependencies":{
+    "express":"",
+    "connect":"",
+    "jade":""
+  }
+}

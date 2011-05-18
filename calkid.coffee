@@ -1,9 +1,9 @@
 class Exercise
   constructor: (x, y) ->
     if x > y
-      [@x, @y, @total] = [x, y, x-y].sort()
+      [@x, @y, @total] = [x, y, x-y].sort((one,two) -> one-two)
     else
-      [@x, @y, @total] = [x, y, y-x].sort()
+      [@x, @y, @total] = [x, y, y-x].sort((one,two) -> one-two)
 
   add: ->
     "#{@x} + #{@y}"
@@ -11,15 +11,25 @@ class Exercise
   subtract: ->
     if @x > @y then "#{@x} - #{@y}" else "#{@y} - #{@x}"
 
+# cycle between add and substract
+cycle = (exercise, index) ->
+  if(index % 2 == 0)
+    exercise.add()
+  else
+    exercise.subtract()
 
+# generate a number of exercises
 generate = (number, max) ->
-  exercises = (new Exercise(Math.floor(Math.random()*(max+1)), Math.floor(Math.random()*(max+1))) for i in [0..max])
+  exercises = (new Exercise(Math.floor(Math.random()*(max+1)), Math.floor(Math.random()*(max+1))) for i in [0..number])
 
-# console.log generate(15, 100)
+# setup
+connect = require('connect')
 app = require('express').createServer()
+app.set('view engine', 'jade')
+app.use connect.static(__dirname + '/public')
 
 app.get "/", (req, res) ->
-  res.send 'Hello World'
+  res.render('index', {pageTitle: "Test", exercises: generate(100, 20), cycle: cycle})
 
 port = 3000
 console.log "Listening on port " + port

@@ -1,0 +1,14 @@
+div#message
+
+- if (exercises.length)
+  - var count = 0
+  ul
+    - exercises.forEach(function(ex){
+      li.h= cycle(ex, count++);
+    - })
+  form#exercise
+    input#solution
+    input(type='submit', id='next', value='volgende')
+
+script
+  nextExercise();
