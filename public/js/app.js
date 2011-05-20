@@ -6,7 +6,15 @@ validate = function() {
   return eval(currentExercise).toString() === $("#solution").val();
 };
 message = __bind(function(value) {
-  $("#message").html(value ? 'juist!' : 'fout!');
+  if (value) {
+    $("#message").html('juist!');
+    $("#message").removeClass('wrong');
+    $("#message").addClass('correct');
+  } else {
+    $("#message").html('fout!');
+    $("#message").removeClass('correct');
+    $("#message").addClass('wrong');
+  }
   return value;
 }, this);
 clear = function() {

@@ -1,3 +1,55 @@
+/* @override http://localhost:3000/css/style.css */
+
+body {
+	font: 2.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	background-color: #666;
+}
+
+h1 {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
 .h, .p {
   display:none;
 }
+
+div#container {
+	width: 6em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+div#message {
+	text-transform: uppercase;
+}
+
+div#message.wrong {
+	color: red;
+}
+
+div#message.correct {
+	color: white;
+}
+
+input#solution {
+	font-size: 0.6em;
+	text-align: center;
+}
+
+input#next {
+	display: block;
+	margin: 1em auto;
+	font-size: 0.5em;
+}
+

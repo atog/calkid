@@ -3,7 +3,15 @@ validate = ->
   eval(currentExercise).toString() == $("#solution").val()
 
 message = (value) =>
-  $("#message").html(if value then 'juist!' else 'fout!')
+  if value
+    $("#message").html('juist!')
+    $("#message").removeClass('wrong')
+    $("#message").addClass('correct')
+  else
+    $("#message").html('fout!')
+    $("#message").removeClass('correct')
+    $("#message").addClass('wrong')
+
   value
 
 clear = ->
