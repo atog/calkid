@@ -47,10 +47,9 @@
   app = require('express').createServer();
   app.set('view engine', 'jade');
   app.use(connect.static(__dirname + '/public'));
-  app.get("/", function(req, res) {
+  app.get("/:max?", function(req, res) {
     return res.render('index', {
-      pageTitle: "Test",
-      exercises: generate(100, 20),
+      exercises: generate(100, parseInt(req.params.max) || 20),
       cycle: cycle
     });
   });

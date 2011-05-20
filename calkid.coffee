@@ -28,8 +28,8 @@ app = require('express').createServer()
 app.set('view engine', 'jade')
 app.use connect.static(__dirname + '/public')
 
-app.get "/", (req, res) ->
-  res.render('index', {exercises: generate(100, 5), cycle: cycle})
+app.get "/:max?", (req, res) ->
+  res.render('index', {exercises: generate(100, parseInt(req.params.max) || 20), cycle: cycle})
 
 port = process.env.VCAP_APP_PORT || 3000
 console.log "Listening on port " + port
