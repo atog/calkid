@@ -29,7 +29,7 @@ app.set('view engine', 'jade')
 app.use connect.static(__dirname + '/public')
 
 app.get "/", (req, res) ->
-  res.render('index', {pageTitle: "Test", exercises: generate(100, 20), cycle: cycle})
+  res.render('index', {pageTitle: "Test", exercises: generate(100, 5), cycle: cycle})
 
 port = process.env.VCAP_APP_PORT || 3000
 console.log "Listening on port " + port

@@ -7,7 +7,7 @@ div#message
       li.h= cycle(ex, count++);
     - })
   form#exercise
-    input#solution
+    input(type='number', id='solution')
     input(type='submit', id='next', value='volgende')
 
 script
